@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Sai Kumar Dash | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #0f172a 0%, #2e8df7 100%);
+  color: #f3f4f6;
+  min-height: 100vh;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+a {
+  color: #38bdf8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #facc15;
+}
+
+/* Navigation Bar */
+nav {
+  position: fixed;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  top: 0; left: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #38bdf8;
+  letter-spacing: 1.2px;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+.nav-links a {
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Hamburger menu for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 26px;
+  height: 22px;
+  justify-content: space-between;
+}
+.hamburger span {
+  display: block;
+  height: 3.2px;
+  width: 100%;
+  background-color: #38bdf8;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 56px;
+    left: -100%;
+    height: 100vh;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    font-size: 1.3rem;
+    transition: left 0.3s ease-in-out;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Main content */
+main {
+  padding: 100px 24px 60px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Glass Card */
+section.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px 26px;
+  box-shadow: 0 8px 32px rgba(46, 141, 247, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Hero Section */
+#home {
+  text-align: center;
+}
+#home img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.25);
+  margin-bottom: 22px;
+  object-fit: cover;
+  border: 3px solid #38bdf8;
+}
+
+/* Responsive Typewriter effect */
+.typewriter {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 1.1px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #facc15;
+  max-width: 90vw;
+  width: fit-content;
+  animation: typing 3s steps(15) forwards, blink-caret 0.75s step-end infinite;
+  margin: 0 auto 10px auto;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 15ch; }
+}
+@keyframes blink-caret {
+  50% { border-color: transparent; }
+  100% { border-color: #facc15; }
+}
+
+@media (max-width: 480px) {
+  .typewriter {
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    white-space: normal;
+    width: 90vw;
+    animation: none; /* disable typing animation on small screens */
+    border-right: none;
+  }
+}
+
+#home h3 {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #facc15;
+  margin-bottom: 20px;
+  letter-spacing: 1.4px;
+}
+#home p {
+  font-size: 1.15rem;
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.5;
+  color: #e0e7ff;
+}
+
+/* Section headings */
+h2 {
+  color: #38bdf8;
+  font-size: 1.9rem;
+  margin-bottom: 18px;
+  border-bottom: 2px solid #facc15;
+  padding-bottom: 8px;
+  width: max-content;
+  letter-spacing: 1.15px;
+}
+
+/* About Section */
+#about ul {
+  list-style-type: none;
+  color: #e0e7ff;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  padding-left: 0;
+}
+#about ul li {
+  padding-bottom: 10px;
+  font-weight: 500;
+}
+#about ul li strong {
+  color: #facc15;
+}
+
+/* Projects & Certificates Grid */
+.gallery-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+}
+.gallery-item {
+  cursor: pointer;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 25px rgba(14,60,146,0.15);
+  transition: transform 0.25s ease;
+  border: 2px solid transparent;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+}
+.gallery-item:hover {
+  transform: translateY(-6px);
+  border-color: #facc15;
+  box-shadow: 0 8px 30px rgba(14,60,146,0.35);
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+.gallery-caption {
+  padding: 8px 12px;
+  font-weight: 600;
+  color: #facc15;
+  text-align: center;
+  background: rgba(0,0,0,0.4);
+  user-select: none;
+}
+
+/* Contact */
+#contact p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+#contact a {
+  color: #34d399;
+  font-weight: 600;
+}
+#contact a:hover {
+  color: #facc15;
+}
+#contact form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  gap: 12px;
+}
+#contact input, #contact textarea {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: #e0e7ff;
+  resize: vertical;
+  transition: background-color 0.3s;
+}
+#contact input::placeholder, #contact textarea::placeholder {
+  color: #cbd5e1;
+}
+#contact input:focus, #contact textarea:focus {
+  outline: 2px solid #38bdf8;
+  background: rgba(255, 255, 255, 0.2);
+}
+#contact button {
+  width: max-content;
+  padding: 10px 28px;
+  font-weight: 600;
+  border: none;
+  border-radius: 15px;
+  background: #38bdf8;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#contact button:hover {
+  background: #facc15;
+  color: #232946;
+}
+
+/* Modal (lightbox gallery) styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 11000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
+.caption {
+  margin: auto;
+  text-align: center;
+  color: #facc15;
+  font-size: 1.2rem;
+  padding: 15px 20px;
+}
+.close {
+  position: fixed;
+  top: 22px;
+  right: 40px;
+  color: #facc15;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.close:hover,
+.close:focus {
+  color: #38bdf8;
+  outline: none;
+}
+.prev, .next {
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -40px;
+  color: #facc15;
+  font-weight: bold;
+  font-size: 40px;
+  user-select: none;
+  transition: color 0.3s;
+  border-radius: 0 8px 8px 0;
+  background: rgba(0,0,0,0.2);
+}
+.next {
+  right: 40px;
+  border-radius: 8px 0 0 8px;
+}
+.prev {
+  left: 40px;
+}
+.prev:hover, .prev:focus,
+.next:hover, .next:focus {
+  color: #38bdf8;
+  background: rgba(0,0,0,0.4);
+  outline: none;
+}
+@media(max-width: 600px) {
+  .modal-content {
+    max-width: 95vw;
+    max-height: 60vh;
+  }
+  .close {
+    font-size: 32px;
+    right: 20px;
+  }
+  .prev, .next {
+    font-size: 32px;
+    padding: 12px;
+  }
+  .prev {
+    left: 20px;
+  }
+  .next {
+    right: 20px;
+  }
+}
+/* Responsive fixes */
+@media (max-width: 768px) {
+  main {
+    padding: 100px 16px 60px 16px;
+  }
+  #home img {
+    width: 130px;
+    height: 130px;
+  }
+  .gallery-item img {
+    height: 120px;
+  }
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+}
+
+    
+    
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">Sai Kumar Dash</div>
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#home" tabindex="0">Home</a>
+      <a href="#about" tabindex="0">About</a>
+      <a href="#projects" tabindex="0">Projects</a>
+      <a href="#achievements" tabindex="0">Achievements</a>
+      <a href="#contact" tabindex="0">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home" class="glass-card" data-aos="fade-down">
+      <img src="avatar.png" alt="Sai Kumar Dash Photo" />
+      <div class="typewriter">Sai Kumar Dash</div>
+      <h3>Java Developer & Computer Science Student</h3>
+      <p>Crafting modern Java applications while exploring AI, Cloud, and Defense technologies. Diploma in IT | BTech CSE 2nd Year</p>
+    </section>
+
+    <section id="about" class="glass-card" data-aos="fade-up">
+      <h2>About Me</h2>
+      <ul>
+        <li><strong>Education:</strong> Diploma in Information Technology & BTech Computer Science Engineering (2nd Year)</li>
+        <li><strong>Skills:</strong> Java, Spring Boot, OOP, REST APIs, SQL, Git, Basic Python, HTML, CSS, JavaScript</li>
+        <li><strong>Interests:</strong> Artificial Intelligence, Cloud Computing, Defense Tech, Competitive Programming</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="glass-card" data-aos="fade-left">
+      <h2>Projects</h2>
+      <div class="gallery-grid">
+        <a class="gallery-item" href="https://jissan.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Jissan Music Player Live Demo">
+          <img src="project1.png" alt="Jissan Music Player Screenshot" />
+          <div class="gallery-caption">Jissan Music Player</div>
+        </a>
+        <a class="gallery-item" href="https://github.com/Sai-Kumar-Dash/LibraryManagementSystem" target="_blank" rel="noopener noreferrer" aria-label="Library Management System on GitHub">
+          <img src="project2.png" alt="Library Management System Screenshot" />
+          <div class="gallery-caption">Library Management (Java)</div>
+        </a>
+        <div class="gallery-item" aria-label="Project 3 Coming Soon" tabindex="0" style="cursor: default;">
+          <img src="image.png" alt="Coming Soon Placeholder" />
+          <div class="gallery-caption"><br><br>Project 3</div>
+        </div>
+        <div class="gallery-item" aria-label="Project 4 Coming Soon" tabindex="0" style="cursor: default;">
+          <img src="image.png" alt="Coming Soon Placeholder" />
+          <div class="gallery-caption"><br><br>Project 4</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements" class="glass-card" data-aos="fade-right">
+      <h2>Certificates & Achievements</h2>
+      <div class="gallery-grid">
+        <a class="gallery-item" href="https://www.linkedin.com/company/oracle-university/" target="_blank" rel="noopener noreferrer" aria-label="Oracle University AI Foundations Certificate">
+          <img src="CERTIFICATE1.png" alt="Oracle University AI Foundations Certificate" />
+          <div class="gallery-caption">Oracle AI Foundations (2025)</div>
+        </a>
+        <a class="gallery-item" href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/udmxiyHeqYQLkTPvf_9PBTqmSxAf6zZTseP_n3Ec6oLQZBmXsQYQ8_1753862175814_completion_certificate.pdf" target="_blank" rel="noopener noreferrer" aria-label="Deloitte Australia Technology Job Simulation Certificate">
+          <img src="CERTIFICATE2.png" alt="Deloitte Australia Technology Job Simulation Certificate" />
+          <div class="gallery-caption"><br>Deloitte Job Simulation</div>
+        </a>
+        <a class="gallery-item" href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/udmxiyHeqYQLkTPvf_9PBTqmSxAf6zZTseP_n3Ec6oLQZBmXsQYQ8_1753862175814_completion_certificate.pdf" target="_blank" rel="noopener noreferrer" aria-label="Tata GenAi Powered">
+          <img src="CERTIFICATE3.png" alt="Tata GenAi Powered" />
+          <div class="gallery-caption"><br>Tata GenAi Powered</div>
+        </a>
+
+        <!-- CISO Certificate bundled thumbnail -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="CISO Certificate gallery - click to view" id="ciso-thumb" style="cursor:pointer;">
+          <img src="CERTIFICATE4.png" alt="CISO Certificate Bundle Thumbnail" />
+          <div class="gallery-caption"><br>Cisco Networking Academy</div>
+        </div>
+      </div>
+    </section>
+
+    <div id="cisoModal" class="modal" aria-hidden="true" aria-label="CISO Certificate Image Gallery" role="dialog" aria-modal="true">
+      <span class="close" role="button" aria-label="Close gallery" tabindex="0">&times;</span>
+      <img class="modal-content" id="cisoModalImg" alt="CISO Certificate image" />
+      <div class="caption" id="cisoCaption"></div>
+      <a class="prev" role="button" aria-label="Previous image" tabindex="0">&#10094;</a>
+      <a class="next" role="button" aria-label="Next image" tabindex="0">&#10095;</a>
+    </div>
+
+    <section id="contact" class="glass-card" data-aos="zoom-in">
+      <h2>Contact Me</h2>
+      <p>📧 <a href="mailto:saikumaryt22@gmail.com">saikumaryt22@gmail.com</a></p>
+      <p>🔗
+        <a href="https://www.linkedin.com/in/sai-kumar-dash/" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+        <a href="https://github.com/Sai-Kumar-Dash" target="_blank" rel="noopener noreferrer">GitHub</a> |
+        <a href="https://x.com/SaiKuDash2006" target="_blank" rel="noopener noreferrer">X</a> |
+        <a href="https://www.reddit.com/u/saikumardash/s/zS1i2Xrpkg" target="_blank" rel="noopener noreferrer">Reddit</a> |
+        <a href="https://www.instagram.com/_sai.exe" target="_blank" rel="noopener noreferrer">Instagram</a> |
+      </p>
+
+      <form id="contact-form" aria-label="Contact form">
+        <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required />
+        <textarea name="message" rows="4" placeholder="Your Message" aria-label="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p id="form-message" aria-live="polite" style="margin-top: 12px;"></p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    AOS.init({ once: true });
+
+    // Navigation toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('active');
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+        const targetId = link.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // EmailJS initialization: replace 'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', 'YOUR_PUBLIC_KEY' with actual
+    emailjs.init('YOUR_PUBLIC_KEY');
+
+    // Contact form submission via EmailJS
+    const form = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Collect inputs
+      const templateParams = {
+        from_name: form.name.value,
+        from_email: form.email.value,
+        message: form.message.value,
+      };
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+          formMessage.textContent = "Message sent! Thanks for reaching out.";
+          form.reset();
+        }, function(error) {
+          formMessage.textContent = "Oops! Something went wrong. Please email me directly.";
+        });
+    });
+
+    // Modal gallery for CISO Certificates
+    const cisoModal = document.getElementById("cisoModal");
+    const cisoThumb = document.getElementById("ciso-thumb");
+    const modalImg = document.getElementById("cisoModalImg");
+    const captionText = document.getElementById("cisoCaption");
+    const closeBtn = cisoModal.querySelector(".close");
+    const prevBtn = cisoModal.querySelector(".prev");
+    const nextBtn = cisoModal.querySelector(".next");
+
+    const cisoImages = [
+      { src: "CISCO1.jpg", alt: "Tata GenAI Data Analytics Certificate 1" },
+      { src: "CISCO2.jpg", alt: "Tata GenAI Data Analytics Certificate 2" },
+      { src: "CISCO3.jpg", alt: "Tata GenAI Data Analytics Certificate 3" }
+    ];
+    let cisoIndex = 0;
+
+    function openCisoModal(index=0) {
+      cisoModal.style.display = "block";
+      cisoModal.setAttribute("aria-hidden", "false");
+      cisoIndex = index;
+      showCisoImage(cisoIndex);
+      closeBtn.focus();
+    }
+    function closeCisoModal() {
+      cisoModal.style.display = "none";
+      cisoModal.setAttribute("aria-hidden", "true");
+      cisoThumb.focus();
+    }
+    function showCisoImage(index) {
+      if(index < 0) cisoIndex = cisoImages.length - 1;
+      else if(index >= cisoImages.length) cisoIndex = 0;
+      else cisoIndex = index;
+      const img = cisoImages[cisoIndex];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      captionText.textContent = `CISO Certificate (${cisoIndex + 1} of ${cisoImages.length})`;
+    }
+
+    cisoThumb.addEventListener("click", () => openCisoModal(0));
+    cisoThumb.addEventListener("keydown", (e) => {
+      if(e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openCisoModal(0);
+      }
+    });
+    closeBtn.addEventListener("click", closeCisoModal);
+    closeBtn.addEventListener("keydown", (e) => {
+      if(e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        closeCisoModal();
+      }
+    });
+    prevBtn.addEventListener("click", () => showCisoImage(cisoIndex -1));
+    nextBtn.addEventListener("click", () => showCisoImage(cisoIndex +1));
+    prevBtn.addEventListener("keydown", (e) => {
+      if(e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showCisoImage(cisoIndex -1);
+      }
+    });
+    nextBtn.addEventListener("keydown", (e) => {
+      if(e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showCisoImage(cisoIndex +1);
+      }
+    });
+    window.addEventListener("click", e => {
+      if (e.target === cisoModal) closeCisoModal();
+    });
+    window.addEventListener("keydown", e => {
+      if (e.key === "Escape" && cisoModal.style.display === "block") closeCisoModal();
+    });
+  </script>
+</body>
+</html>
